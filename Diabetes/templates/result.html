@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction Result</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 20px; }
+        h1 { color: #333; }
+        .result { background-color: #f4f4f4; padding: 20px; border-radius: 5px; }
+        .result p { margin: 10px 0; }
+        .disclaimer { font-style: italic; color: #666; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Diabetes Prediction Result</h1>
+    <div class="result">
+        <p><strong>Prediction:</strong> {{ prediction }}</p>
+        <p><strong>Confidence:</strong> {{ "%.2f"|format(confidence*100) }}%</p>
+        <p><strong>Top influential factors:</strong> {{ ", ".join(top_features) }}</p>
+        {% if additional_info %}
+            <p><strong>Additional Information:</strong> {{ additional_info }}</p>
+        {% endif %}
+    </div>
+    <p class="disclaimer">
+        Note: This prediction is based on machine learning and should not be considered as a medical diagnosis. 
+        Please consult with a healthcare professional for proper medical advice and diagnosis.
+    </p>
+    <p><a href="{{ url_for('home') }}">Make another prediction</a></p>
+</body>
+</html>

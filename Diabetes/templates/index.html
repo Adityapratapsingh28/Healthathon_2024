@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 20px; }
+        h1 { color: #333; }
+        form { max-width: 500px; margin: 0 auto; }
+        label { display: block; margin-bottom: 5px; }
+        input[type="number"] { width: 100%; padding: 8px; margin-bottom: 10px; }
+        input[type="submit"] { background-color: #4CAF50; color: white; padding: 10px 15px; border: none; cursor: pointer; }
+        input[type="submit"]:hover { background-color: #45a049; }
+    </style>
+</head>
+<body>
+    <h1>Diabetes Prediction Form</h1>
+    <form action="{{ url_for('predict')}}" method="post">
+        <label for="pregnancies">Pregnancies:</label>
+        <input type="number" id="pregnancies" name="pregnancies" required>
+
+        <label for="glucose">Glucose:</label>
+        <input type="number" id="glucose" name="glucose" required>
+
+        <label for="bloodpressure">Blood Pressure:</label>
+        <input type="number" id="bloodpressure" name="bloodpressure" required>
+
+        <label for="skinthickness">Skin Thickness:</label>
+        <input type="number" id="skinthickness" name="skinthickness" required>
+
+        <label for="insulin">Insulin:</label>
+        <input type="number" id="insulin" name="insulin" required>
+
+        <label for="bmi">BMI:</label>
+        <input type="number" id="bmi" name="bmi" step="0.1" required>
+
+        <label for="dpf">Diabetes Pedigree Function:</label>
+        <input type="number" id="dpf" name="dpf" step="0.001" required>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+
+        <input type="submit" value="Predict">
+    </form>
+</body>
+</html>
